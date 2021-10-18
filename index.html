@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="CartContainer.css">
+		<title>Shopping Cart</title>
+		<script src = "js/MainController.js"></script>
+		<script src = "js/app.js"></script>
+	</head>
+<body ng-app = "myModule" ng-controller = "myController">
+
+
+<div class="grid-container">
+	<div class="grid-item header" align="center" >
+	
+		<div ng-controller="Header">
+			 <h1> {{ head }}</h1>
+			 <button> <a href="HomePage.html"class="myTexts"><span >Back to Home</span></a></button>
+		</div>
+
+	</div>
+	</div>
+	<div class="grid-container">
+	<div class="grid-item listitems" align="left"><h1>Items</h1></div>
+
+  	<div class="grid-item items">
+	<div class = "col-md-8 well">
+
+			<div id = "product">
+				<div id = "p_list" ng-repeat = "product in products ">
+					<h2 align="left">{{product.pname}}</h2>
+					<div align="left"><img ng-src = "{{product.pimage}}"width="300px" height="300px"/></div>
+					<div><label><h2 align="left">Price: ₱{{product.pprice}}</h2></label></div>
+					<div align="left"><button type = "button" ng-click = "add_cart(product)" type="Header"><span></span> Add to cart</button></div>
+				</div>
+			</div>
+		</div>
+	
+					<h1>My Cart and Total Bill</h1>
+				<div class = "panel-body table-responsive">
+					<table class = "table">
+						<thead>
+							<tr>
+								<th><h2>Product</h2></th>
+								<th><h2>Price</h2></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">
+								<td><h2>{{cart.pname}}</h2></td>
+								<td><h2>₱{{cart.pprice}}</h2></td>
+								<td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"><span >Remove</span></button></td>
+							</tr>
+							<tr>
+								<td align = "right"><h2>Total</h2></td>
+								<td><h2>₱{{total}}</h2></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+</div>
+</h4>
+</h4>
+</div>
+</div>
+</div>
+</body>	
+</html>
